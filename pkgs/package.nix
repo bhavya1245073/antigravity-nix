@@ -126,6 +126,8 @@ let
     fi
 
     exec "$browser_cmd" \
+      --remote-debugging-port=9222 \
+      --remote-allow-origins=* \
       ${lib.optionalString useSystemChromeProfile ''--user-data-dir="${browserProfileDir}" --profile-directory=Default''} \
       "$@"
   '';
